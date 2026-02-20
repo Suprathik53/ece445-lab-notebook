@@ -2,7 +2,7 @@
 
 [[_TOC_]]
 
-# 2026-02-13 - Discussion TA Zhuchen Shao
+# 2026-02-13 - Discussion with TA Zhuchen Shao
 
 This week we first met with our group TA to discuss the overall direction of our project. After building a visual understanding of how the project's subsystems would come together through a block diagram we then finalized logistics on how parts would be ordered and future meeting times and expectations. Later in the week I worked on finalizing the proposal including further ideating on the form factor of the product and deciding the exact sensors and parts we would be using. 
 
