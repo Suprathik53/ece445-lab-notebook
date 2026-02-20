@@ -8,7 +8,7 @@ This week we first met with our group TA to discuss the overall direction of our
 
 ![](block_diagram.png)
 
-# 2021-02-20 - Schematic Design and Parts Updates
+# 2026-02-20 - Schematic Design and Parts Updates
 
 To start this week, our group began developing the schematic for our PCB in KiCad and successfully laid out the components for review during our mentor meeting. After planning part of the PCB design, I worked on preparing an order form for the parts available from the E-Shop.
 
