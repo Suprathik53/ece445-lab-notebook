@@ -25,3 +25,9 @@ This week we created our schematic to begin our PCB design and reviewed it with 
 
 Our schematic:
 ![](schematic.png)
+
+# 2026-02-25 - Finalizing PCB Design
+I updated our schematic to match the parts we ordered. I then moved onto routing the PCB. I placed the components such that the user interface is on the front of the pcb while power would be on the back. I had to redo the placement for the most optimal routing. Eventually I was able to get a well organized PCB and I sent it to the TA for ordering. 
+
+This is the final layout:
+![](pcb_routing.png)
