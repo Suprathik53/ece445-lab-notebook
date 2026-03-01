@@ -40,5 +40,8 @@ We then focused on designing the layout of the PCB following similar principles 
 
 Finally for ease of testing with development boards we also found breakout boards that implement a lot of the circuitry needed for our audio sensing and audio output subsystems. 
 
-![](MAX4466.jpg) ![](MAX98357.png)
+![](MAX4466.png)
+[link](https://www.adafruit.com/product/1063?srsltid=AfmBOoq1_ZeF1upSoV16VT7XkKl8Ah0HNs23jcOlRoFMnywjewPwBUsj)
+![](MAX98357.png)
+[link](https://www.digikey.com/en/products/detail/adafruit-industries-llc/3006/6058477)
 
