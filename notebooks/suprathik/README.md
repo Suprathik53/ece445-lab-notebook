@@ -42,6 +42,7 @@ Finally for ease of testing with development boards we also found breakout board
 
 ![](MAX4466.png)
 [link](https://www.adafruit.com/product/1063?srsltid=AfmBOoq1_ZeF1upSoV16VT7XkKl8Ah0HNs23jcOlRoFMnywjewPwBUsj)
+
 ![](MAX98357.png)
 [link](https://www.digikey.com/en/products/detail/adafruit-industries-llc/3006/6058477)
 
