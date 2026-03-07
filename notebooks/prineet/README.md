@@ -54,3 +54,12 @@ This is what we've estimated our project to cost (this is pretty interesting to 
 
 ![](projected_costs.png)
 
+# 2026-03-06 - Prototyping
+
+During our design review with Professor Gruev, he suggested that we make our project more complicated. His main point here is that we were not doing anything novel, which is a fair criticism of our project. We should aim higher, and I believe in our group enough to accomplish it. One of the things that he mentioned was to add spectral analysis to our project. 
+
+With this spectral analysis, we might be able to have the output frequency match the input frequency, allowing for the ability to mask different kind of noises adaptively to what is happening in the background.  
+
+We also started to work on our breadboard. We had to use the ESP32 dev board since our STM32 one didn't work. We added a microphone to get input and a LED array to act as like a volume display to show how loud the input sound was. 
+
+I hope that this is enough progress for our breadboard demo next week. It has been difficult for us since we are still waiting to get some components to start actual dev work, so we had to do the best we could with what we had. I think that what we have right now is sufficient to show that we have a plan with the input audio that comes through the microphone.
