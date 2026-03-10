@@ -46,3 +46,13 @@ Finally for ease of testing with development boards we also found breakout board
 ![](MAX98357.png)
 [link](https://www.digikey.com/en/products/detail/adafruit-industries-llc/3006/6058477)
 
+# 2026-03-6 - Breadboard Development and PCB Updates
+
+After presenting our design document during our design review we had some new ideas and modifications we wanted to add to our project. One of the ideas we had was adding a spectral analysis component to our software. This addition would allow us to distinguish between distinct sounds such as dog barks or footsteps and then generate the corresponding masking noise for that situation. We would use some prebuilt FFT libraries and after collecting the data run some sort of classifaction:
+
+![](classification.png)
+
+
+Further we made some updates to our PCB to accomadate our own implementation of the speaker and microphone breakout boards and plan to finish up the layout in order to submit for a PCB order. We plan on finishing the following layout:
+
+![](wip_layout.png)
