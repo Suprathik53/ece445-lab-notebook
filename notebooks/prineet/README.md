@@ -63,3 +63,28 @@ With this spectral analysis, we might be able to have the output frequency match
 We also started to work on our breadboard. We had to use the ESP32 dev board since our STM32 one didn't work. We added a microphone to get input and a LED array to act as like a volume display to show how loud the input sound was. 
 
 I hope that this is enough progress for our breadboard demo next week. It has been difficult for us since we are still waiting to get some components to start actual dev work, so we had to do the best we could with what we had. I think that what we have right now is sufficient to show that we have a plan with the input audio that comes through the microphone.
+
+# 2026-03-13 - Last Day Before Spring Break
+
+We found some breakout boards that we got permission to use on the final project. This would make the layout of the PCB so much cleaner and smaller, so it was a no brainer for us to use it. Here are the two breakout boards that we found:
+
+![](breakout_1.png)
+
+Link: https://www.adafruit.com/product/1063?srsltid=AfmBOoq1_ZeF1upSoV16VT7XkKl8Ah0HNs23jcOlRoFMnywjewPwBUsj 
+
+![](breakout_2.png)
+
+Link: https://www.digikey.com/en/products/detail/adafruit-industries-llc/3006/6058477
+
+We had to update our PCB layout to accomodate for this change. Here is the updated layout:
+
+![](updated_layout.png)
+
+This is what the current state of the breadboard is, with our current hardware on it for the input noise volume sensing:
+
+For our breadboard demo, we were able to integrate the adaptive baseline code. First, the room volume is sampled 100 times, which corresponds to 20 ms. For the final system, we will probably have it sample for a couple of seconds to establish a fimer and prolonged baseline. The current room noise was also sampled as we moved, slowly getting faded into the baseline according to how we tuned an adaptive baseline constant, which we can call alpha. If alpha is high, the current room value plays a big part in updating the moving baseline. If it is low, the change to the moving baseline is more subtle.
+
+The LED is there to simulate the speaker. When the LED turns on, it is as if the threshold has been crossed (which we know due to the tolerance analysis which I included above) and the speaker (in this case, the LED) should be turned on. 
+
+![](breadboard_demo.png)
+
