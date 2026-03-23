@@ -56,3 +56,11 @@ After presenting our design document during our design review we had some new id
 Further we made some updates to our PCB to accomadate our own implementation of the speaker and microphone breakout boards and plan to finish up the layout in order to submit for a PCB order. We plan on finishing the following layout:
 
 ![](wip_layout.png)
+
+# 2026-03-6 - Further Work on Breadboard
+
+After receieving more components including our electret microphone we began working on our breadboard prototype for our project. For this demo we focused on setting up sound detection and worked on providing visual feedback of the picked up sound through LED's. Once we got the hardware setup we then built on our software including creating an adaptive noise baseline that monitors the surrounding and continually updates what the base volume is. 
+
+*Add piture of breadboard*
+
+Once we had that finalized we also decided to simulate audio generation with an LED as a placeholder for the speaker. This LED would fade in and out based on our spike detection algorithm which played audio when spikes 10 decibels above the baseline were picked up. 
