@@ -48,5 +48,5 @@ I added the speaker to our breadboard to begin testing output. The speaker gener
 ![](speaker.png)
 
 # 2026-03-25 - Soldering Parts to PCB
-We began soldering all our parts to the PCB. I checked that all the soldered parts were correctly electrically connected. However, we noticed the footprints of some of our parts were incorrect so we are reordering some parts.
+We began soldering all our parts to the PCB. I checked that all the soldered parts were correctly electrically connected. However, we noticed the footprints of some of our parts were incorrect so we are reordering some parts. I also added a header to the pcb for testing parts on extra pins on the esp if needed.
 ![](pcb1.png)
