@@ -42,3 +42,11 @@ Next, the program was expanded to have a moving baseline. It samples the room vo
 
 Finally, as a replacement for the speaker, we added an LED that indicates if the speaker would be on. For this we used RMS instead of peak to peak, and triggered the LED if the decibel value is 10 dB over baseline. RMS or Root Mean Squared is a more accurate to how humans percieve noise. This code is almost the same as the previous, but is used to trigger the speaker LED.
 
+# 2026-03-23 - Adding Speaker
+I added the speaker to our breadboard to begin testing output. The speaker generated noise corectly, and I began to implement our noise masking algorithm.
+![](breadboard.png)
+![](speaker.png)
+
+# 2026-03-25 - Soldering Parts to PCB
+We began soldering all our parts to the PCB. I checked that all the soldered parts were correctly electrically connected. However, we noticed the footprints of some of our parts were incorrect so we are reordering some parts.
+![](pcb1.png)
