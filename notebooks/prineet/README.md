@@ -88,3 +88,17 @@ The LED is there to simulate the speaker. When the LED turns on, it is as if the
 
 ![](breadboard_demo.png)
 
+# 2026-03-27 - PCB Debugging and Enclosure
+
+We attempted to use our PCB this week. It had its fair share of ups and downs I can talk about. For some reason, when we initially tried to use our PCB the first time, nothing was working. We tried debugging everything, but we couldn't figure out why we couldn't load any code onto the PCB. We even took a knife and cut the PCB down to its traces to make sure that everything was inline with what we thought was going on. We gave up. However, the next day, when we tried a different PCB, everything worked. We were able to solder everything onto that PCB and have the code load into the PCB with no problem. We must have shorted something on the first PCB by soldering incorrectly.
+
+We also submitted a new PCB design that made debugging a little easier, since it was so hard to see what was going wrong on the first PCB that we were using.
+
+Supra also started to design the enclosure in CAD. This would be a 3D model that had mounts for the PCB at the base of the enclosure, the speaker, microphone, and encoder mount. This is the enclosure prototype that Supra came up with:
+
+![](enclosure_1.png)
+
+We also receieved our speakers, so we were able to connnect them to our breadboard and test some code that generated white noise instead of lighting up the LED. That worked, so it was a good sign that we had a good baseline to start from.
+
+![](speaker.png)
+
