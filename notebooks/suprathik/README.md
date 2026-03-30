@@ -57,10 +57,26 @@ Further we made some updates to our PCB to accomadate our own implementation of 
 
 ![](wip_layout.png)
 
-# 2026-03-6 - Further Work on Breadboard
+# 2026-03-13 - Further Work on Breadboard
 
-After receieving more components including our electret microphone we began working on our breadboard prototype for our project. For this demo we focused on setting up sound detection and worked on providing visual feedback of the picked up sound through LED's. Once we got the hardware setup we then built on our software including creating an adaptive noise baseline that monitors the surrounding and continually updates what the base volume is. 
+After receieving more components including our electret microphone we began working on our breadboard prototype for our project. For this demo we focused on setting up sound detection and worked on providing visual feedback of the picked up sound through LED's. We then worked with tweaking the code as well as the gain in order to eventually reach a spot where we were getting stable readings for the ADC accoriding to the values we had gotten from our tolerance analysis:
+
+![](tolerance.png)
+
+Once we got the hardware setup we then built on our software including creating an adaptive noise baseline that monitors the surrounding and continually updates what the base volume is. 
 
 *Add piture of breadboard*
 
-Once we had that finalized we also decided to simulate audio generation with an LED as a placeholder for the speaker. This LED would fade in and out based on our spike detection algorithm which played audio when spikes 10 decibels above the baseline were picked up. 
+ Once we had that finalized we also decided to simulate audio generation with an LED as a placeholder for the speaker. This LED would fade in and out based on our spike detection algorithm which played audio when spikes 10 decibels above the baseline were picked up. 
+
+# 2026-03-27
+
+For this week our goals revolved around designing a 3d model for our project enclosure, integrating the speaker with our breadboard demo, and soldering components onto our PCB. 
+
+Since we are planning to 3d print an eclosure for our project I spent some time creating a mock prototype design for initial testing of our circuit in OnShape. This is initial design will give us an idea of any interference that may occur between our speaker and microphone and help us better position them for the final iteration:
+
+![](enclosure_proto.png)
+
+Furthermore, since we received our PCB's and speaker we were then able to begin development using those parts. We were able to integrate the speaker where we previously had our placeholder LED in our breadboard demo and tested some code that generated white noise to be played when triggers were identified. Finally we worked on soldering our microntroller and microphone on to our PCB in order to verify the PCB's functionality.
+
+*picture of pcb with soldered parts*
