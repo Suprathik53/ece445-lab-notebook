@@ -102,3 +102,11 @@ We also receieved our speakers, so we were able to connnect them to our breadboa
 
 ![](speaker.png)
 
+# 2026-04-03 - PCB Soldering
+
+We continued to solder the components that we had onto the PCB board, incrementally testing the components that we had soldered with both software and through the oscilloscope. We also transferred the code over from the breadboard to the PCB.
+
+This is what the PCB looks like right now. It'll be a lot cooler once we get it in the enclosure.
+
+![](pcb_mic_speaker.png)
+
