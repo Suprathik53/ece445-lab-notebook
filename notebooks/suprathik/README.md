@@ -65,11 +65,11 @@ After receieving more components including our electret microphone we began work
 
 Once we got the hardware setup we then built on our software including creating an adaptive noise baseline that monitors the surrounding and continually updates what the base volume is. 
 
-*Add piture of breadboard*
+![](breadboard_1.png)
 
  Once we had that finalized we also decided to simulate audio generation with an LED as a placeholder for the speaker. This LED would fade in and out based on our spike detection algorithm which played audio when spikes 10 decibels above the baseline were picked up. 
 
-# 2026-03-27
+# 2026-03-27 - Enclosure CAD and Speaker Testing
 
 For this week our goals revolved around designing a 3d model for our project enclosure, integrating the speaker with our breadboard demo, and soldering components onto our PCB. 
 
@@ -80,3 +80,13 @@ Since we are planning to 3d print an eclosure for our project I spent some time 
 Furthermore, since we received our PCB's and speaker we were then able to begin development using those parts. We were able to integrate the speaker where we previously had our placeholder LED in our breadboard demo and tested some code that generated white noise to be played when triggers were identified. Finally we worked on soldering our microntroller and microphone on to our PCB in order to verify the PCB's functionality.
 
 *picture of pcb with soldered parts*
+
+# 2026-04-03 - 
+
+Picking up where we left off last week we began soldering some new parts we received from the E-shop in order to begin deploying code to our microcontroller. However, once we soldered on the necessary pieces for testing our subsytems we ran in to issues with certain pins for our switches not being grounded and the datalines not functioning properly. Luckily, our version 2 boards arrived quickly after and once we had the subsytems in place on that board everything worked according to how we expected. We then worked on transferring the code and functions we had on our breadboard to the PCB iteration and experimented more with the limits of our speaker modifying the sensitivity from a baseline of 500 through 5000. 
+
+*picture of pcb v2*
+
+Further, I continued to work on the CAD for our initial design and am preparing to print in the upcoming week using Bambu Studio. This will set us up to begin testing our project in different environments. 
+
+![](bambu.png)
