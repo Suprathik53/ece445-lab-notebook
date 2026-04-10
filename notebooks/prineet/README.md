@@ -106,7 +106,13 @@ We also receieved our speakers, so we were able to connnect them to our breadboa
 
 We continued to solder the components that we had onto the PCB board, incrementally testing the components that we had soldered with both software and through the oscilloscope. We also transferred the code over from the breadboard to the PCB.
 
-This is what the PCB looks like right now. It'll be a lot cooler once we get it in the enclosure.
+# 2026-04-10 - Coding!
 
-![](pcb_mic_speaker.png)
+This past week was all about getting as far as we could with the code. The specs that we had in our design doc specified that we would use the two cores that our microcontroller had, one to do input processing and the other to generate the noise. Up till this point, everything had been happening on one core. So, we switched our code to fully utilizing the two different cores. This actually solved an issue we were having, which was with choppy audio. By splitting up the hard work between two cores, each core was able to focus more on doing a better job for the task it was assigned to.
+
+We also added the baseline in for spectral analysis. We did this so that the speaker would play either white, brown, or pink noise depending on what the input frequency was. The output sound fades in and fades out to not create sharp lines that can impact the sleep of the user.
+
+We also did more complex signal analysis on the output besides the spectral analysis. We added a low pass filter to the signal to cut off the errors and reduce any high frequency noise that is not necessary. 
+
+The enclosure also finished printing before our progress demo with Professor Gruev, and we were able to test in the enclosure. We were running into a lot of trouble after putting our system in the enclosure, however, since the microphone and speaker were creating an infinite feedback loop where the speaker output was triggering the microphone input. However, by adding some tissue paper inside the enclosure to act as a dampener, we were able to put a band aid on the problem. In the future, we will need to purchase or find some high quality foam, like the kind that is used in recording studios to block out other noise, and install that along the walls and inside above the PCB and by the inner walls of the speaker and microphone.
 
