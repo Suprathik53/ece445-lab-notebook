@@ -79,14 +79,42 @@ Since we are planning to 3d print an eclosure for our project I spent some time 
 
 Furthermore, since we received our PCB's and speaker we were then able to begin development using those parts. We were able to integrate the speaker where we previously had our placeholder LED in our breadboard demo and tested some code that generated white noise to be played when triggers were identified. Finally we worked on soldering our microntroller and microphone on to our PCB in order to verify the PCB's functionality.
 
-*picture of pcb with soldered parts*
+![](PCB_V1.jpg)
 
-# 2026-04-03 - 
+# 2026-04-03 - Setting up New PCB & Finishing CAD Prototype
 
 Picking up where we left off last week we began soldering some new parts we received from the E-shop in order to begin deploying code to our microcontroller. However, once we soldered on the necessary pieces for testing our subsytems we ran in to issues with certain pins for our switches not being grounded and the datalines not functioning properly. Luckily, our version 2 boards arrived quickly after and once we had the subsytems in place on that board everything worked according to how we expected. We then worked on transferring the code and functions we had on our breadboard to the PCB iteration and experimented more with the limits of our speaker modifying the sensitivity from a baseline of 500 through 5000. 
 
-*picture of pcb v2*
+![](PCB_v2.jpg)
 
 Further, I continued to work on the CAD for our initial design and am preparing to print in the upcoming week using Bambu Studio. This will set us up to begin testing our project in different environments. 
 
 ![](bambu.png)
+
+# 2026-04-10
+
+Now that we had our components soldered to the PCB and functioning we then worked on implementing our desired funcitonality through code. We worked on utilizing the dual cores on the microcontroller to ensure enough CPU compute for smooth audio output on the microcontroller. To further improve the output quality we added a low pass filter to smooth the signal and reduce high frequency noise that can make the audio sound harsh. We used a second-order digital biquad filter:
+
+$$
+H(z) = \frac{b_0 + b_1 z^{-1} + b_2 z^{-2}}{1 + a_1 z^{-1} + a_2 z^{-2}}
+$$
+
+which follows the difference equation:
+
+$$
+y[n] = b_0 x[n] + b_1 x[n-1] + b_2 x[n-2] - a_1 y[n-1] - a_2 y[n-2]
+$$
+
+The coefficients are computed from the cutoff frequency $f_c$, quality factor $Q$, and sampling rate $f_s$:
+
+$$
+\omega = \frac{2\pi f_c}{f_s}, \quad \alpha = \frac{\sin(\omega)}{2Q}
+$$
+
+Applying this filter reduces the high frequency components and results in a smoother more natural audio output.
+
+We then further worked on implementing logic to prevent feedback loops between the microphone and speaker. We also worked on implementing spectral analysis to detect specific frequency bins to play brown, pink, and white noise at <300Hz, between 300Hz and 1500Hz, and >1500Hz respectively. 
+
+Finally we also finished 3D printing the intial prototype of our encnlosure to test our microphone and speaker placement and test its acoustics. We now have plans to order foam and better position the screw holes for the components to minimize vibrations for our next print. 
+
+![](enclosure_print.jpg)
