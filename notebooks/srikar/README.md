@@ -50,3 +50,18 @@ I added the speaker to our breadboard to begin testing output. The speaker gener
 # 2026-03-25 - Soldering Parts to PCB
 We began soldering all our parts to the PCB. I checked that all the soldered parts were correctly electrically connected. However, we noticed the footprints of some of our parts were incorrect so we are reordering some parts. I also added a header to the pcb for testing parts on extra pins on the esp if needed.
 ![](pcb1.png)
+
+# 2026-03-26 - New PCB order and working on Individual Progress Report
+I worked on a final PCB version that makes debugging easier. This was brought about after we had issues with our original PCB that were hard to diagnose. In addition I have been working on my individual progress report.
+
+# 2026-04-02 - Soldering parts to PCB
+After receiving the new parts with the correct footprints we soldered them onto our PCB. We noticed unstable voltage on the enable pin and thought our decoupling capacitor was causing issues. After desoldering it I observed that the voltage stabilized but it was stuck at 2.5v instead of the required 3.3v. I was unable to diagnose the specific issue, but noticed that our PCB had an issue where not every part that was supposed to be grounded were connected to each other on the ground plane. This likely caused issues with the voltage.
+
+# 2026-04-03 - Soldering Parts to new PCB
+After receiving the new parts with the correct footprints I soldered them onto our newest PCB. After doing do so our issues from the previous PCB disappeared and I was able to succesfully connect to the ESP32 and upload code to it.
+
+# 2026-04-06 - Working on Software and Enclosure
+We started the 3D print for our enclosure while working on the noise masking software. We already had code that played white noise if the room noise crossed a baseline threshold. We decided to upgrade this with spectral analysis so that the speaker would play white, pink, or brown noise depending on the input frequency. Brown noise is played if the input is less than 300Hz, pink noise between 300Hz and 1500Hz, and white noise at greater than 1500Hz. Whenever noise is played the software smoothly transitions into the required volume and noise type to prevent disturbance. However, we were having issues where the generated audio was choppy, or there were detection issues. After some research we realized that running everything on a single ESP32 core causes detection and audio generation to conflict. So to fix this, we seperated the tasks into one core each. Finally we added volume control with an encoder.
+![](enclosure.png)
+
+# 2026-5-15 - Continuing Software Improvement and Redesigning Enclosure
