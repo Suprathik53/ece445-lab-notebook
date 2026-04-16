@@ -62,6 +62,8 @@ After receiving the new parts with the correct footprints I soldered them onto o
 
 # 2026-04-06 - Working on Software and Enclosure
 We started the 3D print for our enclosure while working on the noise masking software. We already had code that played white noise if the room noise crossed a baseline threshold. We decided to upgrade this with spectral analysis so that the speaker would play white, pink, or brown noise depending on the input frequency. Brown noise is played if the input is less than 300Hz, pink noise between 300Hz and 1500Hz, and white noise at greater than 1500Hz. Whenever noise is played the software smoothly transitions into the required volume and noise type to prevent disturbance. However, we were having issues where the generated audio was choppy, or there were detection issues. After some research we realized that running everything on a single ESP32 core causes detection and audio generation to conflict. So to fix this, we seperated the tasks into one core each. Finally we added volume control with an encoder.
+
+The noise is built with a continuous pink-noise bed as always part of the masker, then a softer accent layer is added based on the selected white, pink, or brown noise color and gently shaped toward the detected disturbance band with a broad band-pass filter. The final sound is softened again with a low-pass stage, while gain, volume, and noise-color changes are all smoothed over time so transitions do not jump suddenly. 
 ![](enclosure.png)
 
 # 2026-5-15 - Continuing Software Improvement and Redesigning Enclosure
