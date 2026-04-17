@@ -67,3 +67,8 @@ The noise is built with a continuous pink-noise bed as always part of the masker
 ![](enclosure.png)
 
 # 2026-5-15 - Continuing Software Improvement and Redesigning Enclosure
+After some initial testing we decided that doing bucketed spectral analysis was not variable enough for producing an effective masking noise. I updated the code to capture a 128-sample frame from the mic at 16 kHz, remove the DC offset, compute loudness metrics, and then call an analyze function. Here, the frame is windowed with a Hann window, run through the FFT, and then only bins between 80 Hz and 4500 Hz are considered. The code smooths each bin’s magnitude over time, sums a small neighborhood around each bin, and finds both the strongest and second-strongest peaks. It then computes a weighted center frequency for the dominant peak and a second frequency for the runner-up, so the detector ends up with dominantFreqHz, dominantPower, secondaryFreqHz, and secondaryPower.
+
+This information is used to figure out what kind of masker should be produced and is also used to decide when to retarget masking to a new noise. The code checks whether the current frame is loud enough to matter, whether the new dominant peak is different enough from the current target, and whether it is stronger than both the previous target and the runner-up peak. This is when it decides to switch the masking noise.
+
+We also decided that to ensure that the masking noise fills the target area more effectively it would be better to use 2 speakers. This dual speaker design required us to start redesigning our enclosure.
