@@ -116,3 +116,13 @@ We also did more complex signal analysis on the output besides the spectral anal
 
 The enclosure also finished printing before our progress demo with Professor Gruev, and we were able to test in the enclosure. We were running into a lot of trouble after putting our system in the enclosure, however, since the microphone and speaker were creating an infinite feedback loop where the speaker output was triggering the microphone input. However, by adding some tissue paper inside the enclosure to act as a dampener, we were able to put a band aid on the problem. In the future, we will need to purchase or find some high quality foam, like the kind that is used in recording studios to block out other noise, and install that along the walls and inside above the PCB and by the inner walls of the speaker and microphone.
 
+# 2026-04-17 - Results + How We Can Make it Better
+
+We have been seeing promising results with everything thusfar. We wanted to expand the directionality that the speakers had so the system could be in different positions and still hit the user as they were speaker. So, we redesigned the system to have two speakers, each outputting the same noise. In order to do this in the hardware, we would change the enclosure to be a pentagon, putting the speakers and microphone on opposite ends to minimize the chance they start an infinite feedback loop. 
+
+During early testing, we found that bucket based spectral analysis did not provide enough variation to generate masking noise that worked well. Because of this, I revised the code so that it reads a 128-sample microphone frame at a 16 kHz sampling rate, subtracts the DC component, calculates loudness-related values, and passes the frame into an analysis routine.
+
+Inside that analysis routine, the signal is first multiplied by a Hann window and then processed with an FFT. For each bin, the magnitude is smoothed across time, and nearby bins are combined to estimate the local energy around that frequency. From there, the program identifies the largest peak and the next-largest peak.
+
+This directly goes into choosing the type of masking sound that we are generating. The program asks whether the frame is loud enough to matter and whether that peak is stronger than the old and secondary peak. If all of these conditions are met, the system will playh the new masking noise to match what it's hearing.
+
