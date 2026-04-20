@@ -91,7 +91,7 @@ Further, I continued to work on the CAD for our initial design and am preparing 
 
 ![](bambu.png)
 
-# 2026-04-10
+# 2026-04-10 - Audio Output Smoothing & Enclosure Testing
 
 Now that we had our components soldered to the PCB and functioning we then worked on implementing our desired funcitonality through code. We worked on utilizing the dual cores on the microcontroller to ensure enough CPU compute for smooth audio output on the microcontroller. To further improve the output quality we added a low pass filter to smooth the signal and reduce high frequency noise that can make the audio sound harsh. We used a second-order digital biquad filter:
 
@@ -115,6 +115,14 @@ Applying this filter reduces the high frequency components and results in a smoo
 
 We then further worked on implementing logic to prevent feedback loops between the microphone and speaker. We also worked on implementing spectral analysis to detect specific frequency bins to play brown, pink, and white noise at <300Hz, between 300Hz and 1500Hz, and >1500Hz respectively. 
 
-Finally we also finished 3D printing the intial prototype of our encnlosure to test our microphone and speaker placement and test its acoustics. We now have plans to order foam and better position the screw holes for the components to minimize vibrations for our next print. 
+Finally we also finished 3D printing the intial prototype of our enclosure to test our microphone and speaker placement and test its acoustics. We now have plans to order foam and better position the screw holes for the components to minimize vibrations for our next print. 
 
 ![](enclosure_print.jpg)
+
+# 2026-04-17 - New Enclosure Design & Spectral Analysis Implementation
+
+When testing with our new prototype we realized that while the speaker proved effective in overwhelming the frequency bins of distrubing audio when listened to in the direction it was oriented, the audio output was underwhelming in other directions. As such, to hit a wider range with the generated audio we decided to modify our design to utilize two speakers driven from the same pins. This would allow us to not only hit a wider range directly but also increase the volume we are able to output. Further, we modifed the box design to a pentagon shape in order to maintain decent distance between the speakers and the microphone to prevent any interference and feedback loops. We plan to begin printing the following week. 
+
+![](pentagon.png)
+
+On the software side we continued to implement a more advanced version of spectral analysis compared to the simple 3 frequency bins we were using previously. Our new approach utilizes FFT's to more accurately categorize incoming audio events and then overwhelm more precise frequency bins to better target the disturbance. 
