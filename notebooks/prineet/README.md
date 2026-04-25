@@ -126,3 +126,16 @@ Inside that analysis routine, the signal is first multiplied by a Hann window an
 
 This directly goes into choosing the type of masking sound that we are generating. The program asks whether the frame is loud enough to matter and whether that peak is stronger than the old and secondary peak. If all of these conditions are met, the system will playh the new masking noise to match what it's hearing.
 
+# 2026-04-24 - New Enclosure
+
+The new enclosure finished printing. We trasnferred what we had over to the new enclosure, and using some bolts and nuts that I got from going down to the ECE mechanic shop and trying a bunch of different sized bolts and nuts from different drawers, secured everything in place.
+
+![](both_enclosures.png)
+
+We also connected the additional speaker by splitting the output wires to the speaker in two, with each set going to a speaker.
+
+![](both_speakers.png)
+
+After switching to the two speaker approach, we saw that the audio output was extremely choppy. This had something to do with the fact that we had not really tuned our constants for two speakers, so we had to go back to the testing table and continually test our noise until it got better, but the choppiness never really went away. 
+
+We realized that we would have to change to using a lazy buffer. Currently, the processing that we were doing was preventing the ESP from populating the speaker's output buffer at a fast enough rate. So, if we add each generated value to the output buffer more than once, the speaker's output buffer might be able to keep up with the input. This ended up working beautifully.
