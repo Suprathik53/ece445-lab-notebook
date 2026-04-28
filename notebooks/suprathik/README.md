@@ -125,4 +125,14 @@ When testing with our new prototype we realized that while the speaker proved ef
 
 ![](pentagon.png)
 
-On the software side we continued to implement a more advanced version of spectral analysis compared to the simple 3 frequency bins we were using previously. Our new approach utilizes FFT's to more accurately categorize incoming audio events and then overwhelm more precise frequency bins to better target the disturbance. 
+On the software side we continued to implement a more advanced version of spectral analysis compared to the simple 3 frequency bins we were using previously. Our new approach utilizes FFT's to more accurately categorize incoming audio events and then overwhelm more precise frequency bins to better target the disturbance. We achieved precise frequency bin detection through the use of a hanning window to reduce spectral leakage by implementing the following formula in our analysis: gAnalysisWindow[i] = 0.5 - 0.5*cos(...).  
+
+# 2026-04-24 - Pentagon Enclosure Implementation
+
+This week we mainly worked on further refining the software to minimize feedback loops in our rectangular enclosure design. We tested different materials for noise dampening including tissues, bubble wrap, and foam. Through testing these materials we finally arrived at foam as having the most consistent success at the different frequency ranges we tested with(400Hz - 2KHz). 
+
+We further worked on improving the audio quality to prevent a choppy output. In order to achieve this we implementented a lazy buffer. We realized that the processing we needed to do on the backend prevented the ESP from populating the speaker's output buffer at a fast enough rate. We then mitigated this by adding each generated value to the buffer twice. This ensured smooth output while still keeping the audio generation adaptive. 
+
+Finally, we fully printed the new pentagon eclosure and transferred our components to begin testing with it.
+
+![](pent_enc.jpg)
