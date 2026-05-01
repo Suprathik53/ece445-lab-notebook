@@ -129,10 +129,24 @@ On the software side we continued to implement a more advanced version of spectr
 
 # 2026-04-24 - Pentagon Enclosure Implementation
 
-This week we mainly worked on further refining the software to minimize feedback loops in our rectangular enclosure design. We tested different materials for noise dampening including tissues, bubble wrap, and foam. Through testing these materials we finally arrived at foam as having the most consistent success at the different frequency ranges we tested with(400Hz - 2KHz). 
+This week we mainly worked on further refining the software to minimize feedback loops in our rectangular enclosure design. We tested different materials for noise dampening including tissues, bubble wrap, and foam. Through testing these materials we finally arrived at foam as having the most consistent success at the different frequency ranges we tested with(400Hz - 2kHz). 
+
+![](foam.jpg)
 
 We further worked on improving the audio quality to prevent a choppy output. In order to achieve this we implementented a lazy buffer. We realized that the processing we needed to do on the backend prevented the ESP from populating the speaker's output buffer at a fast enough rate. We then mitigated this by adding each generated value to the buffer twice. This ensured smooth output while still keeping the audio generation adaptive. 
 
 Finally, we fully printed the new pentagon eclosure and transferred our components to begin testing with it.
 
 ![](pent_enc.jpg)
+
+# 2026-05-01 - Visualizations & Verifications
+
+This week when testing the new enclosure in a louder environment we noticed some issues with the feedback loop once again despite isolating the microphone utilizing the foam we tested the previous week. As such we implemented a hardware solution utilizing the second mic we added to our PCB. We position the second microphone next to our speakers to pick up their output. We then subtracted the reference mic's reading from the main mic to get the actual encironment noise according to the following formula: cleaned = mic - gain * refMic. This provied effective in our tests in both loud environemtns(60dB) and quiet rooms(30dB). 
+
+![](foam_add.jpg)
+
+We then worked through having more visual feedback of our system functioning through generating a waveform of our systems's baseline, input readings, and output Hz. These would signal if the system is effectively adapting to the room and any distrurbance with the matching output frequency. 
+
+![](waveform.png)
+
+Then we verified with requirements we set by measuring the dB level at a distance of 0.5 meteres, added latency checks for the system from detecting a disturbance to outputing sound, and verified our 16kHz sampling rate through checking if our sampling buffer of size 256 populated with 16ms. These ensured that our product was fully functional. 
