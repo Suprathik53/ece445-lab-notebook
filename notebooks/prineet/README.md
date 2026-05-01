@@ -139,3 +139,17 @@ We also connected the additional speaker by splitting the output wires to the sp
 After switching to the two speaker approach, we saw that the audio output was extremely choppy. This had something to do with the fact that we had not really tuned our constants for two speakers, so we had to go back to the testing table and continually test our noise until it got better, but the choppiness never really went away. 
 
 We realized that we would have to change to using a lazy buffer. Currently, the processing that we were doing was preventing the ESP from populating the speaker's output buffer at a fast enough rate. So, if we add each generated value to the output buffer more than once, the speaker's output buffer might be able to keep up with the input. This ended up working beautifully.
+
+# 2026-05-01 - Satisfying the Verifications and Python Simulations
+
+Before we were able to get started on the verifications, we had to add the foam into the inside of the enclosure as we said we would to mitigate a feedback loop. We also added another microphone on the inside of the enclosure to subtract what the inside microphone heard from what the speakers were playing to tell the system to not look at that frequency as a potential input. These two fixes worked in tandem to prvent the feedback loop from happening again.
+
+We had to satisfy all the constraints that we set for ourselves when we initially took on this challenge. The most important test was verifying that the system would work overnight (~8 hours) without overheating or breaking. We set the system up overnight and let it work, uninterrupted, while Srikar slept. Here are the logs:
+
+![](logs.png)
+
+Before our simulations, we could only state qualitatively that by putting your head by the speaker and pretending like you were sleeping, the system would mask the noise that was being played into the microphone. However, the simulation below shows a cool visualization proving the effectiveness of the system.
+
+![](graph.png)
+
+The top plot shows a noise events impact on the event without the noise masking provided by our system. As you can see, the lines are clearly separable, showing a big impact on the user's sleep. The bottom graph, on the other hand, shows what happens when the system is on. The lines are blurred, as the device causes any input noises to fade into the background, severly decreasing the chance that a noise event would disrupt the user's sleep.
